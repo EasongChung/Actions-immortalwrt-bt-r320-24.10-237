@@ -50,12 +50,12 @@
 
                 status_red_led: led-0 {
                         label = "red:status";
-                        gpios = <&pio 10 GPIO_ACTIVE_LOW>;
+                        gpios = <&pio 8 GPIO_ACTIVE_LOW>;
                 };
 
                 status_green_led: led-1 {
                         label = "green:status";
-                        gpios = <&pio 11 GPIO_ACTIVE_LOW>;
+                        gpios = <&pio 13 GPIO_ACTIVE_LOW>;
                 };
 
                 status_blue_led: led-2 {
