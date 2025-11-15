@@ -1848,8 +1848,8 @@ endef
 TARGET_DEVICES += sl_3000-emmc
 
 define Device/ph_hy3000-emmc
-  DEVICE_VENDOR := PH
-  DEVICE_MODEL := hy3000 eMMC
+  DEVICE_VENDOR := Philips
+  DEVICE_MODEL := HY3000
   DEVICE_DTS := mt7981b-ph-hy3000-emmc
   DEVICE_DTS_DIR := ../dts
   DEVICE_PACKAGES := kmod-mt7915e kmod-mt7981-firmware mt7981-wo-firmware automount coremark blkid blockdev fdisk f2fsck mkf2fs kmod-mmc
