@@ -100,7 +100,8 @@ jobs:
           remove_tool_cache: true
           remove_swap: true
           remove_docker_image: true
-          remove_packages: "[google-cloud-cli temurin-* azure-cli microsoft-edge-stable google-chrome-stable firefox postgresql* *llvm* mysql* dotnet-sdk-*]"
+          remove_packages: [google-cloud-cli temurin-* azure-cli microsoft-edge-stable google-chrome-stable firefox postgresql* *llvm* mysql* dotnet-sdk-*]
+          
           remove_folders: "/usr/share/swift /usr/share/miniconda /usr/share/az* /usr/share/glade* /usr/local/share/chromium /usr/local/share/powershell"
           
           # 如果释放空间不够删掉remove_packages的注释
