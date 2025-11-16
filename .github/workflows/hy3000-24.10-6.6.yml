@@ -64,6 +64,31 @@ jobs:
           echo "upload_release=${{ env.UPLOAD_RELEASE }}" >> $GITHUB_OUTPUT
           echo "tz=${{ env.TZ }}" >> $GITHUB_OUTPUT
 
+  free-disk:
+    name: 释放 Ubuntu 磁盘空间（在编译前）
+    runs-on: ubuntu-latest
+    needs: setup
+    # 如果你想总是继续，即使释放失败，也可保留 continue-on-error
+    steps:
+      - name: 释放Ubuntu磁盘空间
+        uses: danshui-git/free-disk-space@main
+        continue-on-error: true
+        timeout-minutes: 15
+        with:
+          remove_android: true
+          remove_dotnet: true
+          remove_haskell: true
+          remove_tool_cache: true
+          remove_swap: true
+          remove_docker_image: ${{ github.event.inputs.build_type == 'Host' && 'true' || 'false' }}
+          remove_packages: "[google-cloud-cli temurin-* azure-cli microsoft-edge-stable google-chrome-stable firefox postgresql* *llvm* mysql* dotnet-sdk-*]"
+          remove_folders: "/usr/share/swift /usr/share/miniconda /usr/share/az* /usr/share/glade* /usr/local/share/chromium /usr/local/share/powershell"
+          
+          # 如果释放空间不够删掉remove_packages的注释
+          # 如果释放空间不够可在remove_folders添加/usr/local/lib/node_modules
+          # 如果释放空间不够可将remove_android改为true
+          
+
   call-builder:
     needs: setup
     uses: ./.github/workflows/image-builder.yml
