@@ -84,6 +84,34 @@ jobs:
       - name: Checkout
         uses: actions/checkout@main
 
+        
+      - name: 释放前的空间大小space usage
+        if: (!cancelled())
+        run: df -hT
+        
+      - name: 释放Ubuntu磁盘空间
+        uses: danshui-git/free-disk-space@main
+        continue-on-error: true
+        timeout-minutes: 15
+        with:
+          remove_android: true
+          remove_dotnet: true
+          remove_haskell: true
+          remove_tool_cache: true
+          remove_swap: true
+          remove_docker_image: true
+          remove_packages: "[google-cloud-cli temurin-* azure-cli microsoft-edge-stable google-chrome-stable firefox postgresql* *llvm* mysql* dotnet-sdk-*]"
+          remove_folders: "/usr/share/swift /usr/share/miniconda /usr/share/az* /usr/share/glade* /usr/local/share/chromium /usr/local/share/powershell"
+          
+          # 如果释放空间不够删掉remove_packages的注释
+          # 如果释放空间不够可在remove_folders添加/usr/local/lib/node_modules
+          # 如果释放空间不够可将remove_android改为true
+          
+      - name: 释放后的空间大小 space usage
+        if: (!cancelled())
+        run: df -hT
+
+        
       - name: Initialization environment
         env:
           DEBIAN_FRONTEND: noninteractive
