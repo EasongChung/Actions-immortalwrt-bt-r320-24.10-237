@@ -23,7 +23,7 @@ date_version=$(date +"%Y年%m月%d日")
 #sed -i "s/(\(luciversion || ''\))/(\1) + (' \/ by vx:Mr___zjz-$WRT_DATE')/g" $(find ./feeds/luci/modules/luci-mod-status/ -type f -name "10_system.js")
 #添加编译日期
 COMPILE_DATE=$(date +"%Y.%m.%d")
-log_success "添加编译日期:${COMPILE_DATE}"
+
 sed -i "s/%C/\/ Complied on ${COMPILE_DATE}/g" package/base-files/files/usr/lib/os-release
 sed -i "s/%C/\/ Complied on ${COMPILE_DATE}/g" package/base-files/files/etc/openwrt_release
 
