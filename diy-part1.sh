@@ -17,6 +17,15 @@
 # echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
 #echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
 
+# =========================================================
+# 1. 优先修复 Golang 环境 (解决 Xray, Docker 等编译失败的关键)
+# =========================================================
+rm -rf feeds/packages/lang/golang
+git clone https://github.com/sbwml/packages_lang_golang -b 25.x feeds/packages/lang/golang
+# 注意：25.x 分支可能对某些旧源码不兼容，建议用 22.x 或 master，或者根据你之前的成功经验保持 25.x
+# 如果你之前用 25.x 成功了，就保留 25.x
+
+
 #添加编译日期标识
 date_version=$(date +"%Y年%m月%d日")
 #sed -i "s/(\(luciversion || ''\))/(\1) + (' \/ $WRT_MARK-$WRT_DATE')/g" $(find ./feeds/luci/modules/luci-mod-status/ -type f -name "10_system.js")
