@@ -25,6 +25,15 @@ git clone https://github.com/sbwml/packages_lang_golang -b 25.x feeds/packages/l
 # 注意：25.x 分支可能对某些旧源码不兼容，建议用 22.x 或 master，或者根据你之前的成功经验保持 25.x
 # 如果你之前用 25.x 成功了，就保留 25.x
 
+# =========================================================
+# 2. 清理可能有问题的官方包 (Ruby, Docker 等)
+# =========================================================
+# 移除 Ruby 以防止编码报错 (Invalid byte sequence)
+rm -rf feeds/packages/lang/ruby
+
+# 移除 Docker 源码 (防止编译失败，建议后续通过 opkg 安装)
+rm -rf feeds/packages/utils/docker
+rm -rf feeds/packages/utils/dockerd
 
 #添加编译日期标识
 date_version=$(date +"%Y年%m月%d日")
