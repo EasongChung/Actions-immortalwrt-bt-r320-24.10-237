@@ -8,7 +8,7 @@
 # 2. 清理冲突包 & 官方坑包
 # =========================================================
 # 双重保险：移除 feeds 里的 golang (配合 diy-part1.sh 使用)
-rm -rf feeds/packages/lang/golang
+#rm -rf feeds/packages/lang/golang
 
 # 移除 Ruby, Docker 等
 rm -rf feeds/packages/lang/ruby
