@@ -134,7 +134,7 @@ fi
 # =========================================================
 # 1. 优先修复 Golang 环境 (解决 Xray, Docker 等编译失败的关键)
 # =========================================================
-rm -rf feeds/packages/lang/golang
+# rm -rf feeds/packages/lang/golang
 #git clone https://github.com/sbwml/packages_lang_golang -b 25.x feeds/packages/lang/golang
 #git clone https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
 
