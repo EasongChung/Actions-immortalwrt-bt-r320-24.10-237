@@ -11,4 +11,4 @@ sed -i '/golang/d' feeds.conf.default
 
 # 添加 sbwml 的 golang 源
 # 这里的 golang 会在 update feeds 时被拉取到 feeds/golang 目录
-echo 'src-git golang https://github.com/sbwml/packages_lang_golang;25.x' >> feeds.conf.default
+echo 'src-git golang https://github.com/sbwml/packages_lang_golang;22.x' >> feeds.conf.default
