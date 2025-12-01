@@ -22,14 +22,7 @@
 # =========================================================
 rm -rf feeds/packages/lang/golang
 #git clone https://github.com/sbwml/packages_lang_golang -b 25.x feeds/packages/lang/golang
-
-sed -i '/golang/d' feeds.conf.default
-
-# 2. 这一步是很多教程没写对的：
-# 我们不能直接修改官方 packages feed 里的内容，因为那是个 git 仓库。
-# 最好的办法是添加一个新的 feed，并且让它的优先级更高，或者在 part2 里强制替换。
-# 但为了简单有效，我们在这里添加一个专门的 golang feed。
-echo 'src-git golang https://github.com/sbwml/packages_lang_golang;25.x' >> feeds.conf.default
+git clone https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
 
 # 注意：25.x 分支可能对某些旧源码不兼容，建议用 22.x 或 master，或者根据你之前的成功经验保持 25.x
 # 如果你之前用 25.x 成功了，就保留 25.x
