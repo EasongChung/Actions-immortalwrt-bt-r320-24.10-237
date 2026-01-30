@@ -8,7 +8,7 @@
 1. [P3TERX/Actions-OpenWrt](https://github.com/P3TERX/Actions-OpenWrt) - GitHub Actions 在线编译框架
 2. [padavanonly/immortalwrt-mt798x-6.6](https://github.com/padavanonly/immortalwrt-mt798x-6.6) - ImmortalWrt 24.10（Linux内核6.6）固件源码
 
-- 基于中国移动RAX3000M路由器（eMMC存储版本）固件工作流修改为Globitel BT-R320-EMMC路由器，提供自动化编译、自定义插件和优化功能。
+- 基于中国移动RAX3000M路由器（eMMC存储版本）固件工作流修改为Globitel BT-R320-EMMC路由器，自用编译工作流，可自定义插件和优化功能。
 
 ## U-boot
 
