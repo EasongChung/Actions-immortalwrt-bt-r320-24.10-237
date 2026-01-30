@@ -72,6 +72,7 @@
 #### 下载固件
 
 编译完成后，在Releases页面找到最新日期的固件，如：
+
 20260130-24.10-6.6-immortalwrt-mediatek-filogic-bt_r320-emmc-squashfs-sysupgrade.bin
 
 
