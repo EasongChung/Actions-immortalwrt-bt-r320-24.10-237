@@ -20,10 +20,10 @@ cp -f "$GITHUB_WORKSPACE/dts/mediatek_filogic" "package/boot/uboot-envtools/file
 echo "PH-HY3000和BT-R320 dts文件替换成功"
 
 # 移除 Makefile 中所有 cmcc-rax3000m 变体的引用（包括 stock、emmc 等）
-sed -i '/cmcc-rax3000m/d' target/linux/mediatek/image/mt7981.mk
-sed -i '/cmcc-rax3000m/d' target/linux/mediatek/image/Makefile  # 如果引用在主 Makefile
-sed -i '/cmcc-rax3000m/d' target/linux/mediatek/modules.mk      # 如果有模块定义
-echo "移除 Makefile 中所有 cmcc-rax3000m 变体的引用（包括 stock、emmc 等）成功"
+# sed -i '/cmcc-rax3000m/d' target/linux/mediatek/image/mt7981.mk
+# sed -i '/cmcc-rax3000m/d' target/linux/mediatek/image/Makefile  # 如果引用在主 Makefile
+# sed -i '/cmcc-rax3000m/d' target/linux/mediatek/modules.mk      # 如果有模块定义
+# echo "移除 Makefile 中所有 cmcc-rax3000m 变体的引用（包括 stock、emmc 等）成功"
 
 # theme
 rm -rf feeds/luci/themes/luci-theme-argon
