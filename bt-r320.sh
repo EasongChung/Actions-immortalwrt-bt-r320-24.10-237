@@ -8,6 +8,14 @@
 # ./scripts/feeds update -a
 # ./scripts/feeds install -a
 
+# 上游已将 rax3000m-emmc 的 dts 重命名为 -mtk 后缀，复制并恢复旧名以兼容 Makefile
+cd target/linux/mediatek/dts/
+if [ -f mt7981b-cmcc-rax3000m-emmc-mtk.dts ]; then
+    cp mt7981b-cmcc-rax3000m-emmc-mtk.dts mt7981b-cmcc-rax3000m-emmc.dts
+    echo "Copied mt7981b-cmcc-rax3000m-emmc-mtk.dts -> mt7981b-cmcc-rax3000m-emmc.dts for compatibility"
+fi
+cd -
+
 # 复制 DTS 和配置文件
 cp -f "$GITHUB_WORKSPACE/dts/filogic.mk" "target/linux/mediatek/image/filogic.mk"
 cp -f "$GITHUB_WORKSPACE/dts/mt7981b-ph-hy3000-emmc.dts" "target/linux/mediatek/dts/mt7981b-ph-hy3000-emmc.dts"
