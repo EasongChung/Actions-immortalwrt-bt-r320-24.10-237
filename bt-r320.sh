@@ -8,14 +8,6 @@
 # ./scripts/feeds update -a
 # ./scripts/feeds install -a
 
-# 上游已将 rax3000m-emmc 的 dts 重命名为 -mtk 后缀，复制并恢复旧名以兼容 Makefile
-cd target/linux/mediatek/dts/
-if [ -f mt7981b-cmcc-rax3000m-emmc-mtk.dts ]; then
-    cp mt7981b-cmcc-rax3000m-emmc-mtk.dts mt7981b-cmcc-rax3000m-emmc.dts
-    echo "Copied mt7981b-cmcc-rax3000m-emmc-mtk.dts -> mt7981b-cmcc-rax3000m-emmc.dts for compatibility"
-fi
-cd -
-
 # 复制 DTS 和配置文件
 cp -f "$GITHUB_WORKSPACE/dts/filogic.mk" "target/linux/mediatek/image/filogic.mk"
 cp -f "$GITHUB_WORKSPACE/dts/mt7981b-ph-hy3000-emmc.dts" "target/linux/mediatek/dts/mt7981b-ph-hy3000-emmc.dts"
@@ -26,6 +18,12 @@ cp -f "$GITHUB_WORKSPACE/dts/01_leds" "target/linux/mediatek/filogic/base-files/
 cp -f "$GITHUB_WORKSPACE/dts/platform.sh" "target/linux/mediatek/filogic/base-files/lib/upgrade/platform.sh"
 cp -f "$GITHUB_WORKSPACE/dts/mediatek_filogic" "package/boot/uboot-envtools/files/mediatek_filogic"
 echo "PH-HY3000和BT-R320 dts文件替换成功"
+
+# 移除 Makefile 中所有 cmcc-rax3000m 变体的引用（包括 stock、emmc 等）
+sed -i '/cmcc-rax3000m/d' target/linux/mediatek/image/mt7981.mk
+sed -i '/cmcc-rax3000m/d' target/linux/mediatek/image/Makefile  # 如果引用在主 Makefile
+sed -i '/cmcc-rax3000m/d' target/linux/mediatek/modules.mk      # 如果有模块定义
+echo "移除 Makefile 中所有 cmcc-rax3000m 变体的引用（包括 stock、emmc 等）成功"
 
 # theme
 rm -rf feeds/luci/themes/luci-theme-argon
