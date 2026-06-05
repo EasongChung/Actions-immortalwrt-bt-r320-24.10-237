@@ -15,10 +15,10 @@
 - 本编译固件推荐使用 lgs2007m 大佬的U-boot，https://github.com/lgs2007m/Actions-OpenWrt/releases/tag/Router-Flashing-Files
 
 ## 原厂固件备份
-下载地址：https://disk.yandex.ru/d/iYINM3NDE9TvWg
-One-click backup and restore (including partition table information)
-backup：dd if=/dev/mmcblk0 of=r320.img bs=512 count=2180096
-restore：dd if=r320.img of=/dev/mmcblk0 bs=512 count=2180096
+- 下载地址：https://disk.yandex.ru/d/iYINM3NDE9TvWg
+- One-click backup and restore (including partition table information)
+- backup：dd if=/dev/mmcblk0 of=r320.img bs=512 count=2180096
+- restore：dd if=r320.img of=/dev/mmcblk0 bs=512 count=2180096
 
 ## 注意事项
 
