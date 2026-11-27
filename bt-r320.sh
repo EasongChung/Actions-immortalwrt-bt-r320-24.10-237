@@ -20,9 +20,12 @@ cp -f "$GITHUB_WORKSPACE/dts/mediatek_filogic" "package/boot/uboot-envtools/file
 echo "PH-HY3000和BT-R320 dts文件替换成功"
 
 # theme
-rm -rf feeds/luci/themes/luci-theme-argon
-git clone https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
-git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
+# Argon 3.x 已将配置页及翻译内置到 luci-theme-argon，需同时清理 feeds 中的旧版主题与独立配置包避免文件冲突
+./scripts/feeds uninstall luci-theme-argon luci-app-argon-config >/dev/null 2>&1 || true
+rm -rf feeds/luci/themes/luci-theme-argon feeds/luci/applications/luci-app-argon-config
+rm -rf package/feeds/luci/luci-theme-argon package/feeds/luci/luci-app-argon-config
+rm -rf package/luci-theme-argon package/luci-app-argon-config
+git clone --depth=1 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 
 # passwall
 # rm -rf feeds/packages/net/{xray-core,v2ray-geodata,sing-box,chinadns-ng,dns2socks,hysteria,ipt2socks,microsocks,naiveproxy,shadowsocks-libev,shadowsocks-rust,shadowsocksr-libev,simple-obfs,tcping,trojan-plus,tuic-client,v2ray-plugin,xray-plugin,geoview,shadow-tls}

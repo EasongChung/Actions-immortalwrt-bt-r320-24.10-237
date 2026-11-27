@@ -57,8 +57,8 @@ UPDATE_PACKAGE() {
 #UPDATE_PACKAGE "homeproxy" "VIKINGYFY/homeproxy" "main"
 #UPDATE_PACKAGE "nikki" "nikkinikki-org/OpenWrt-nikki" "main"
 UPDATE_PACKAGE "openclash" "vernesong/OpenClash" "dev" "pkg"
-UPDATE_PACKAGE "passwall" "xiaorouji/openwrt-passwall" "main" "pkg"
-UPDATE_PACKAGE "passwall2" "xiaorouji/openwrt-passwall2" "main" "pkg"
+#UPDATE_PACKAGE "passwall" "xiaorouji/openwrt-passwall" "main" "pkg" # 原仓库已 404，迁移至 Openwrt-Passwall/openwrt-passwall
+#UPDATE_PACKAGE "passwall2" "xiaorouji/openwrt-passwall2" "main" "pkg" # 原仓库已 404，迁移至 Openwrt-Passwall/openwrt-passwall2
 
 UPDATE_PACKAGE "luci-app-tailscale" "asvow/luci-app-tailscale" "main"
 
@@ -90,15 +90,15 @@ UPDATE_PACKAGE "luci-app-quickstart" "shidahuilang/openwrt-package" "Immortalwrt
 
 UPDATE_PACKAGE "lucky" "shidahuilang/openwrt-package" "Lede" "pkg"
 UPDATE_PACKAGE "luci-app-lucky" "shidahuilang/openwrt-package" "Lede" "pkg"
-# npc安装
-UPDATE_PACKAGE "luci-app-npc" "kiddin9/kwrt-packages" "main" "pkg"
-UPDATE_PACKAGE "luci-app-frpc" "kiddin9/kwrt-packages" "main" "pkg"
-UPDATE_PACKAGE "luci-app-zerotier" "kiddin9/kwrt-packages" "main" "pkg"
+# kiddin9/kwrt-packages 已不可访问 (HTTP 451)，且 luci-theme-argon 由具体机型脚本维护
+#UPDATE_PACKAGE "luci-app-npc" "kiddin9/kwrt-packages" "main" "pkg"
+#UPDATE_PACKAGE "luci-app-frpc" "kiddin9/kwrt-packages" "main" "pkg"
+#UPDATE_PACKAGE "luci-app-zerotier" "kiddin9/kwrt-packages" "main" "pkg"
 #UPDATE_PACKAGE "luci-app-ssr-plus" "kiddin9/kwrt-packages" "main" "pkg"
-UPDATE_PACKAGE "luci-theme-argon" "kiddin9/kwrt-packages" "main" "pkg"
+#UPDATE_PACKAGE "luci-theme-argon" "kiddin9/kwrt-packages" "main" "pkg"
 #UPDATE_PACKAGE "luci-app-easymesh" "kiddin9/kwrt-packages" "main" "pkg"
-UPDATE_PACKAGE "quickstart" "kiddin9/kwrt-packages" "main" "pkg"
-UPDATE_PACKAGE "luci-app-quickstart" "kiddin9/kwrt-packages" "main" "pkg"
+#UPDATE_PACKAGE "quickstart" "kiddin9/kwrt-packages" "main" "pkg"
+#UPDATE_PACKAGE "luci-app-quickstart" "kiddin9/kwrt-packages" "main" "pkg"
 
 #更新软件包版本
 UPDATE_VERSION() {
@@ -148,7 +148,7 @@ UPDATE_VERSION "luci-app-passwall"
 UPDATE_VERSION "luci-app-passwall2"
 UPDATE_VERSION "luci-app-store"
 UPDATE_VERSION "luci-app-openclash"
-UPDATE_VERSION "luci-app-argon-config"
+#UPDATE_VERSION "luci-app-argon-config" # 已整合进 luci-theme-argon 3.x
 
 #预置OpenClash内核和数据
 if [ -d *"openclash"* ]; then
